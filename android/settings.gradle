@@ -1,0 +1,3 @@
+rootProject.name = 'random_look_up'
+
+include ':app'
