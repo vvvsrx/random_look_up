@@ -2,6 +2,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import { StyleSheet, View, Text, Platform, TouchableOpacity } from 'react-native';
+import px2dp from '../util/px2dp';
 
 
 
@@ -22,7 +23,7 @@ export default class MobileContent extends Component {
         return (
             <View style={styles.mobileBox}>
                 {
-                    province ? null :
+                    province ? 
                         <View style={styles.mobileRow}>
                             <View style={styles.title1}>
                                 <Text style={styles.titleText1}>省份:</Text>
@@ -31,10 +32,11 @@ export default class MobileContent extends Component {
                                 <Text style={styles.titleText2}>{province}</Text>
                             </View>
                         </View>
+                        : null
                 }
 
                 {
-                    city ? null :
+                    city ? 
                         <View style={styles.mobileRow}>
                             <View style={styles.title1}>
                                 <Text style={styles.titleText1}>城市:</Text>
@@ -43,10 +45,11 @@ export default class MobileContent extends Component {
                                 <Text style={styles.titleText2}>{city}</Text>
                             </View>
                         </View>
+                        : null
                 }
 
                 {
-                    areacode ? null :
+                    areacode ? 
                         <View style={styles.mobileRow}>
                             <View style={styles.title1}>
                                 <Text style={styles.titleText1}>区号:</Text>
@@ -55,10 +58,11 @@ export default class MobileContent extends Component {
                                 <Text style={styles.titleText2}>{areacode}</Text>
                             </View>
                         </View>
+                        : null
                 }
 
                 {
-                    zip ? null :
+                    zip ? 
                         <View style={styles.mobileRow}>
                             <View style={styles.title1}>
                                 <Text style={styles.titleText1}>邮编:</Text>
@@ -67,10 +71,11 @@ export default class MobileContent extends Component {
                                 <Text style={styles.titleText2}>{zip}</Text>
                             </View>
                         </View>
+                        : null
                 }
 
                 {
-                    company ? null :
+                    company ? 
                         <View style={styles.mobileRow}>
                             <View style={styles.title1}>
                                 <Text style={styles.titleText1}>运营商:</Text>
@@ -79,10 +84,11 @@ export default class MobileContent extends Component {
                                 <Text style={styles.titleText2}>{company}</Text>
                             </View>
                         </View>
+                        : null
                 }
 
                 {
-                    card ? null :
+                    card ? 
                         <View style={styles.mobileRow}>
                             <View style={styles.title1}>
                                 <Text style={styles.titleText1}>卡类型:</Text>
@@ -91,6 +97,7 @@ export default class MobileContent extends Component {
                                 <Text style={styles.titleText2}>{card}</Text>
                             </View>
                         </View>
+                        : null
                 }
             </View>
 
@@ -101,10 +108,25 @@ export default class MobileContent extends Component {
 
 
 const styles = StyleSheet.create({
-    mobileBox: {},
-    mobileRow: {},
-    title1: {},
-    titleText1: {},
-    title2: {},
+    mobileBox: 
+    {
+        paddingTop: px2dp(13),
+        paddingLeft: px2dp(13),
+        paddingRight: px2dp(13),
+    },
+    mobileRow: {
+        flexDirection: 'row',
+    },
+    title1: {
+        width:px2dp(50),
+        paddingRight: px2dp(5),
+    },
+    titleText1: 
+    {
+        textAlign:'right'
+    },
+    title2: {
+        flex: 1,
+    },
     titleText2: {},
 });

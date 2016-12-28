@@ -19,7 +19,20 @@ import Icon from 'react-native-vector-icons/Ionicons';
 export default class MobilePage extends PageComponent {
   constructor(props) {
     super(props);
-    this.state = { text: '', isShowHit: true };
+    this.state = 
+    { 
+      text: '', 
+      isShowHit: true ,
+      isShowMobileContent : false,
+      mobileData:{
+        // province:"上海",
+        // city:"111",
+        // areacode:"021",
+        // zip:"200000",
+        // company:"联通",
+        // card:"222"
+      }
+    };
   }
 
 
@@ -41,14 +54,18 @@ export default class MobilePage extends PageComponent {
             {this._hitText()}
           </TextInput>
         </View>
+        {this._prepareData()}
       </View>
     )
   }
 
   _prepareData()
   {
+    if (!this.state.isShowMobileContent) {
+      return null;
+    }
     return(
-        <MobileContent />
+        <MobileContent {...this.state.mobileData} />
     )
   }
 
@@ -74,15 +91,19 @@ export default class MobilePage extends PageComponent {
   }
 
   _getData() {
-    var url = 'http://apis.juhe.cn/mobile/get?key=7685e46f4ecae94af827e9adb0e847fb&dtype=json&phone=' + this.state.text;
+    var url = 'https://apis.juhe.cn/mobile/get?key=7685e46f4ecae94af827e9adb0e847fb&dtype=json&phone=' + this.state.text;
     fetch(url)
       .then((response) => response.json())
       .then((responseData) => {
         if(responseData.resultcode === "200")
         {
           let data = responseData.result;
+          var tmpState = this.state;
+          tmpState.mobileData = data;
+          tmpState.isShowMobileContent = true;
+          this.setState(tmpState);
         }else{
-          
+
         }
       }).done();
   }
