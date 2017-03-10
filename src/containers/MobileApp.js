@@ -6,10 +6,6 @@ import * as MobileAction from "../actions/mobile";
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({...MobileAction,...FetchAction},dispatch);
-//   return {
-//     textInputChange: obj => dispatch(MobileAction.changeText(obj.text)),
-//     getData: () => dispatch(MobileAction.search())
-//   };
 }
 
 function mapStateToProps(state) {

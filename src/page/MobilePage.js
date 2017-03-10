@@ -18,12 +18,9 @@ class MobilePage extends Component {
   }
 
   render() {
-    console.log(this.props);
     let model = this.props.mobile.toObject();
-    console.log(model);
     return (
       <View>
-        {/*<NavigationBar title="返回" />*/}
         <View style={styles.container}>
           <TextInput
             style={styles.searchBar}
@@ -58,11 +55,11 @@ class MobilePage extends Component {
   }
 }
 
-// MobilePage.propTypes = {
-//   textInputChange: PropTypes.func.isRequired,
-//   getData: PropTypes.func.isRequired,
-//   mobile: PropTypes.object.isRequired
-// };
+MobilePage.propTypes = {
+  textInputChange: PropTypes.func.isRequired,
+  getData: PropTypes.func.isRequired,
+  mobile: PropTypes.object.isRequired
+};
 
 const styles = StyleSheet.create({
   container: {

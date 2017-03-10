@@ -21,8 +21,6 @@ const initialState = Map({
 });
 
 export default function mobile(state = initialState, action) {
-
-  console.log(action.type);
   switch (action.type) {
     case SEARCH_MOBILENUMBER:
       state = state.set('isShowMobileContent',true);
@@ -32,9 +30,7 @@ export default function mobile(state = initialState, action) {
     case SHOW_INPUTHIT:
       return state.set('isShowHit',true);
     case CHANGE_NUMBER:
-      console.log(state.get('text'));
       return state.set('text', action.number);
-      //return state;
     default:
       return state;
   }
