@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import {AppRegistry} from 'react-native';
-import Navigation from './controls/common/entry';
+import Navigation from './src/common/entry';
 
 export default class random_look_up extends Component {
   render() {

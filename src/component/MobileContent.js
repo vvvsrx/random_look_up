@@ -118,8 +118,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     title1: {
-        width:px2dp(50),
-        paddingRight: px2dp(5),
+        width:px2dp(60),
+        marginRight: px2dp(5),
     },
     titleText1: 
     {
