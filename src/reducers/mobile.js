@@ -7,7 +7,7 @@ import {
 import {Map} from 'immutable';
 
 const initialState = Map({
-  text: "1860167560",
+  text: "",
   isShowHit: true,
   isShowMobileContent: false,
   mobileData: {

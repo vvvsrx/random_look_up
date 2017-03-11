@@ -4,7 +4,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactNative, { Text, View, StyleSheet, Platform, TouchableOpacity, TouchableNativeFeedback, Image } from 'react-native';
 import px2dp from '../util/px2dp';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import theme from '../common/theme';
 
 

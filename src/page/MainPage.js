@@ -13,7 +13,8 @@ import MainImageButton from "../component/MainImageButton";
 import TextButton from "../component/TextButton";
 import px2dp from "../util/px2dp";
 import MobileApp from "../containers/MobileApp";
-import Icon from "react-native-vector-icons/MaterialIcons";
+import AccountCardApp from "../containers/AccountCardApp"
+//import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {
     StackNavigator
 } from "react-navigation";
@@ -25,17 +26,18 @@ class MainScene extends Component {
         }
     }
 
-    _switchToMobilePage(userInfo) {
-
+    _switchToPage(appName,text) {
         const {
             navigate
         } = this.props.navigation;
 
-        navigate('MobileApp', { title: '手机号归属地' });
+        navigate(appName, { title: text });
     }
 
-
     render() {
+        const {
+            navigate
+        } = this.props.navigation;
         return (
             <View style={styles.container}>
                 <View style={[styles.height160, styles.row]}>
@@ -43,10 +45,10 @@ class MainScene extends Component {
                 </View>
                 <View style={[styles.height160, styles.row]}>
                     <View style={[styles.height160, styles.part_1_left]}>
-                        <MainImageButton icon='phone' imgSize={px2dp(100)} onPress={this._switchToMobilePage.bind(this)} text='手机号归属地'></MainImageButton>
+                        <MainImageButton icon='phone-classic' imgSize={px2dp(100)} onPress={this._switchToPage.bind(this,'MobileApp','手机号归属地')} text='手机号归属地'></MainImageButton>
                     </View>
                     <View style={[styles.height160, styles.part_1_left]}>
-                        <TextButton text='身份证查询'></TextButton>
+                        <MainImageButton icon='account-card-details' imgSize={px2dp(100)} onPress={this._switchToPage.bind(this,'AccountCardApp','身份证查询')} text='身份证查询'></MainImageButton>
                     </View>
                 </View>
                 <View style={[styles.height160, styles.row]}>
@@ -70,6 +72,9 @@ const AppNavigator = StackNavigator({
     },
     MobileApp: {
         screen: MobileApp
+    },
+    AccountCardApp:{
+        screen:AccountCardApp
     }
     }, {
     initialRouteName: 'MainScene',
