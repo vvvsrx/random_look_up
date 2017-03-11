@@ -31,7 +31,7 @@ class MainScene extends Component {
             navigate
         } = this.props.navigation;
 
-        navigate('MobileApp');
+        navigate('MobileApp', { title: '手机号归属地' });
     }
 
 

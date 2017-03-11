@@ -10,91 +10,91 @@ import px2dp from '../util/px2dp';
 export default class MobileContent extends Component {
 
     static propTypes = {
-        province: PropTypes.string,
-        city: PropTypes.string,
-        areacode: PropTypes.string,
-        zip: PropTypes.string,
-        company: PropTypes.string,
-        card: PropTypes.string
+        style_citynm: PropTypes.string,
+        att: PropTypes.string,
+        area: PropTypes.string,
+        postno: PropTypes.string,
+        operators: PropTypes.string,
+        ctype: PropTypes.string
     };
 
     render() {
-        const {province, city, areacode, zip, company, card} = this.props;
+        const {style_citynm, att, area, postno, operators, ctype} = this.props;
         return (
             <View style={styles.mobileBox}>
                 {
-                    province ? 
+                    style_citynm ? 
                         <View style={styles.mobileRow}>
                             <View style={styles.title1}>
                                 <Text style={styles.titleText1}>省份:</Text>
                             </View>
                             <View style={styles.title2}>
-                                <Text style={styles.titleText2}>{province}</Text>
+                                <Text style={styles.titleText2}>{style_citynm}</Text>
                             </View>
                         </View>
                         : null
                 }
 
                 {
-                    city ? 
+                    att ? 
                         <View style={styles.mobileRow}>
                             <View style={styles.title1}>
                                 <Text style={styles.titleText1}>城市:</Text>
                             </View>
                             <View style={styles.title2}>
-                                <Text style={styles.titleText2}>{city}</Text>
+                                <Text style={styles.titleText2}>{att}</Text>
                             </View>
                         </View>
                         : null
                 }
 
                 {
-                    areacode ? 
+                    area ? 
                         <View style={styles.mobileRow}>
                             <View style={styles.title1}>
                                 <Text style={styles.titleText1}>区号:</Text>
                             </View>
                             <View style={styles.title2}>
-                                <Text style={styles.titleText2}>{areacode}</Text>
+                                <Text style={styles.titleText2}>{area}</Text>
                             </View>
                         </View>
                         : null
                 }
 
                 {
-                    zip ? 
+                    postno ? 
                         <View style={styles.mobileRow}>
                             <View style={styles.title1}>
                                 <Text style={styles.titleText1}>邮编:</Text>
                             </View>
                             <View style={styles.title2}>
-                                <Text style={styles.titleText2}>{zip}</Text>
+                                <Text style={styles.titleText2}>{postno}</Text>
                             </View>
                         </View>
                         : null
                 }
 
                 {
-                    company ? 
+                    operators ? 
                         <View style={styles.mobileRow}>
                             <View style={styles.title1}>
                                 <Text style={styles.titleText1}>运营商:</Text>
                             </View>
                             <View style={styles.title2}>
-                                <Text style={styles.titleText2}>{company}</Text>
+                                <Text style={styles.titleText2}>{operators}</Text>
                             </View>
                         </View>
                         : null
                 }
 
                 {
-                    card ? 
+                    ctype ? 
                         <View style={styles.mobileRow}>
                             <View style={styles.title1}>
                                 <Text style={styles.titleText1}>卡类型:</Text>
                             </View>
                             <View style={styles.title2}>
-                                <Text style={styles.titleText2}>{card}</Text>
+                                <Text style={styles.titleText2}>{ctype}</Text>
                             </View>
                         </View>
                         : null

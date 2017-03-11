@@ -1,14 +1,16 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 import { StyleSheet, View, Text, Platform, TextInput } from "react-native";
-//import NavigationBar from "../component/SimpleNavigationBar";
-//import PageComponent from "./BackPageComponent";
 import px2dp from "../util/px2dp";
 import MobileContent from "../component/MobileContent";
 import theme from "../common/theme";
 import Icon from "react-native-vector-icons/Ionicons";
 
 class MobilePage extends Component {
+  static navigationOptions = {
+    title: ({ state }) => `${state.params.title}`,
+  };
+
  constructor(props) {
     super(props);
     this.state = 
@@ -27,9 +29,9 @@ class MobilePage extends Component {
             value={this.state.text}
             autoFocus={true}
             keyboardType="numeric"
-            maxLength={20}
             onChangeText={text => this._textInputChange({ text })}
             onSubmitEditing={this._getData.bind(this)}
+            underlineColorAndroid='transparent'
           />
         </View>
         {
@@ -50,7 +52,7 @@ class MobilePage extends Component {
 
   _getData() {
     let model = this.props.mobile.toObject();
-    this.props.GetDataAsync("https://apis.juhe.cn/mobile/get?key=7685e46f4ecae94af827e9adb0e847fb&dtype=json&phone=" + model.text)
+    this.props.GetDataAsync("https://sapi.k780.com/?app=phone.get&appkey=23827&sign=ebdd4157eb1b6b3cb20b6957db8c676f&format=json&phone=" + model.text)
     this.props.getData(this.props.fetch.data);
   }
 }
@@ -64,11 +66,13 @@ MobilePage.propTypes = {
 const styles = StyleSheet.create({
   container: {
     height: theme.actionBar.height,
-    //backgroundColor: theme.actionBar.backgroundColor,
     justifyContent: "center",
-    paddingTop: Platform.OS === "ios" ? px2dp(20) : 0
+    paddingTop: px2dp(20),
+    // paddingRight: 5,
+    // paddingLeft: 5,
   },
   searchBar: {
+    paddingVertical: 0,
     flexDirection: "row",
     height: px2dp(33),
     paddingLeft: px2dp(13),
