@@ -20,60 +20,30 @@ export default class AccountCardContent extends Component {
   };
 
   render() {
-    const { born, sex, att, postno, areano } = this.props;
+    const propTitle = {
+        born:"出生年月日",
+        sex:"性别",
+        att:"归属地",
+        postno:"邮编",
+        areano:"区号"
+    };
 
     return (
       <View style={styles.mobileBox}>
-        {born
-          ? <View style={styles.mobileRow}>
+
+        {Object.keys(propTitle).map((name: String) =>
+            this.props[name]
+          ? <View style={styles.mobileRow} key={name}>
               <View style={styles.title1}>
-                <Text style={styles.titleText1}>出生年月日:</Text>
+                <Text style={styles.titleText1}>{propTitle[name]}:</Text>
               </View>
               <View style={styles.title2}>
-                <Text style={styles.titleText2}>{born}</Text>
+                <Text style={styles.titleText2}>{this.props[name]}</Text>
               </View>
             </View>
-          : null}
-        {sex
-          ? <View style={styles.mobileRow}>
-              <View style={styles.title1}>
-                <Text style={styles.titleText1}>性别:</Text>
-              </View>
-              <View style={styles.title2}>
-                <Text style={styles.titleText2}>{sex}</Text>
-              </View>
-            </View>
-          : null}
-        {att
-          ? <View style={styles.mobileRow}>
-              <View style={styles.title1}>
-                <Text style={styles.titleText1}>归属地:</Text>
-              </View>
-              <View style={styles.title2}>
-                <Text style={styles.titleText2}>{att}</Text>
-              </View>
-            </View>
-          : null}
-        {postno
-          ? <View style={styles.mobileRow}>
-              <View style={styles.title1}>
-                <Text style={styles.titleText1}>邮编:</Text>
-              </View>
-              <View style={styles.title2}>
-                <Text style={styles.titleText2}>{postno}</Text>
-              </View>
-            </View>
-          : null}
-        {areano
-          ? <View style={styles.mobileRow}>
-              <View style={styles.title1}>
-                <Text style={styles.titleText1}>区号:</Text>
-              </View>
-              <View style={styles.title2}>
-                <Text style={styles.titleText2}>{areano}</Text>
-              </View>
-            </View>
-          : null}
+          : null
+        )}
+
       </View>
     );
   }
@@ -97,6 +67,5 @@ const styles = StyleSheet.create({
   },
   title2: {
     flex: 1
-  },
-  titleText2: {}
+  }
 });
